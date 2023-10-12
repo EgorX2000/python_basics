@@ -3,11 +3,12 @@ n = int(input())
 preferences = dict()
 for i in range(n):
     info = input().split()
-    surname, porridge = info[0], info[1]
-    if porridge in preferences:
-        preferences[porridge].add(surname)
-    else:
-        preferences[porridge] = {surname}
+    surname = info[0]
+    for porridge in info[1:]:
+        if porridge in preferences:
+            preferences[porridge].add(surname)
+        else:
+            preferences[porridge] = {surname}
 
 porridge = input()
 if porridge in preferences:
